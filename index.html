@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/dom.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+    <script>
+        $(document).ready(inicio);
+        var producto;
+
+        function inicio(){
+            $("button").click(comprar);
+        }
+
+        function comprar(){
+            producto = $("#input-producto").val();
+            alert(producto);
+
+        }
+    </script>
+    <title>LocalStorage</title>
+</head>
+<body>
+    <h1>Ejercicio de Acceso al DOM</h1>
+    <h3>Document Object Model</h3>
+   <li> <p>Este es un articulo de prueba! <span>Aclaracion del tema.</span></p></li>
+   <li><p>Permite almacenar datos localmente en el navegador del usuario</p></li>
+   <li><p>Es mas seguro y almacena mas que las cookies</p></li>
+   <li><p>Se almacena por origen (dominio y protocolo ) :</p></li>
+   <li><p>Todas las paginas del mismo origen pueden acceder a los mimos datos</p></li>
+   <li><p>Almacena sin fecha de expiracion</p></li>
+
+   <h2>Elementos o nodos a utilizar</h2>
+   
+   
+   <button type="button" id="logout">Logout</button>
+   <p id="saludo"></p>
+   <p id="contador"></p>
+
+
+    <script>
+        //verificamos si existe usuario
+        if(localStorage.getItem("usuario")!=null){
+            
+            localStorage.setItem("contador",Number(localStorage.getItem("contador"))+1);
+            document.getElementById("saludo").innerHTML="Bienvenido  " +localStorage.getItem("usuario")+", es tu session numero :"+localStorage.getItem("contador");            
+
+            
+         //   document.getElementById("contador").innerHTML = (localStorage.getItem("contador"));
+
+        }else{
+            localStorage.setItem("usuario",prompt("nombre de usuario : "));
+            document.getElementById("saludo").innerHTML=localStorage.getItem("usuario")+"! Bienvenido a tu primera vez   ... " ;
+            localStorage.setItem("contador","1");
+
+        }
+
+        //funcion de eliminar local storage
+
+        document.getElementById("logout").addEventListener("click",logout);
+
+
+        function logout(){
+            document.getElementById("saludo").innerHTML = "Se acaba de eliminar el local Storage !";
+            localStorage.clear();
+        }
+    </script>
+    <br>
+    <br>
+
+    <h3>Prueba de lectura del DOM con reinsercion</h3>
+<section>
+    <input type="text" id="input-producto" placeholder="Ingresa el producto...">
+    <button>comprar</button>
+    <div id="lista-productos"></div>
+</section>
+    
+
+<br>
+<br>
+<br>
+</body>
+</html>

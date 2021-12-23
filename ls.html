@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/test-localStorage.js"></script>
+</head>
+<body>
+    <h1>Ejercicio con Local Storage</h1>
+    <h2>Completamos el form y luego llevamos los datos a LS</h2>
+    <h3>Leemos los datos del LS y los renderizamos en el DOM</h3>
+    <br>
+    <h4>En este ejercicio no empleamos JQuery !!</h4>
+    <br>
+    <form action="" name="formulario">
+
+        nombre
+        <input type="text" id="nombre">
+        apellido
+        <input type="text" name="" id="apellido">
+        E-mail
+        <input type="text" name="" id="e-mail">
+        <br>
+        <br>
+        <br>
+        <input type="button" value="Almacenar LS" onclick="guardar()">
+        <br><br><br><br><br>
+        <input type="button" value="Agregar LS" onclick="guardarOtro()">
+    </form>
+
+    <div id="salida-datos">
+        <h2>Datos extraidos del localStorage</h2>
+        <br><br>
+        <input type="button" value="Mostrar LS" onclick="mostrar()">
+        <p id="nombreP">Nombre</p>
+        <p id="apellidoP">Apellido</p>
+        <p id="emailP">Correo</p>
+        <br><br><br><input type="button" value="Mostrar indice" onclick="mostrarIndice()">
+    </div>
+</body>
+</html>
